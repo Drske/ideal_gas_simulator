@@ -26,7 +26,8 @@ def bounce(atom1, atom2):
     w = abs(atom1.pos_x - atom2.pos_x)
 
     if w == 0:
-        slope = 0
+        atom1.vel_y, atom2.vel_y = atom2.vel_y, atom1.vel_y
+        return
     else:
         slope = math.atan(float(h) / w)
 
