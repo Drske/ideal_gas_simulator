@@ -1,10 +1,10 @@
-from utils import logic, gui
+from utils import logic, gui, elements
 from tkinter import TclError
 import random
 import sys
 
 # Input data
-Test = gui.UserInput()
+Test = gui.init_input()
 try:
     radius = float(Test.labels[0].get())
     eta_height = float(Test.labels[1].get())
@@ -30,8 +30,8 @@ tolerance = 0.001 * radius
 
 # Adding atoms to reservoir
 dec_length = dec_length * radius
-detector = logic.Detector(dec_height, dec_length)
-reservoir = logic.Reservoir(H, L, tolerance, detector)
+detector = elements.Detector(dec_height, dec_length)
+reservoir = elements.Reservoir(H, L, tolerance, detector)
 
 coords = logic.starting_coords(N, radius, L, H)
 
@@ -43,7 +43,7 @@ while atoms_counter < N:
     vx = random.randint(-max_v, max_v)
     vy = random.randint(-max_v, max_v)
 
-    atom = logic.Atom(x, y, vx, vy, radius)
+    atom = elements.Atom(x, y, vx, vy, radius)
     reservoir.add_atom(atom)
 
     coords.discard((x, y))
@@ -54,4 +54,4 @@ reservoir.create_grid()
 
 # Pygame simulation
 
-gui.start_simulation(time_step, reservoir, dec_length, dec_height)
+gui.start_simulation(time_step, reservoir)
