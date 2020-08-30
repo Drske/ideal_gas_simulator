@@ -96,8 +96,9 @@ class Reservoir:
 
         # Adding time and time_step to detector
 
-        self.detector.time += time_step
         self.detector.time_steps += 1
+        if self.detector.time_steps > 100:
+            self.detector.time += time_step
 
         # Firstly, check for balls in you neighboorhood
 
@@ -143,7 +144,7 @@ class Reservoir:
 
                 # If there is detector impact - notice it
                 if atom.pos_y >= self.detector.height and atom.pos_y <= self.detector.height + \
-                        self.detector.length:
+                        self.detector.length and self.detector.time_steps > 100:
                     self.detector.impact_count += 1
                     self.detector.momentum += 2 * abs(atom.vel_x)
 

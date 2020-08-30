@@ -62,7 +62,10 @@ def start_simulation(time_step, reservoir):
             if index_box == 1:
                 boxes[index_box].value = reservoir.detector.time
             if index_box == 2:
-                boxes[index_box].value = reservoir.detector.Pressure()
+                if reservoir.detector.time_steps <= 100:
+                    boxes[index_box].value = 0
+                else:
+                    boxes[index_box].value = reservoir.detector.Pressure()
             boxes[index_box].draw(screen)
 
         pygame.display.flip()
