@@ -34,7 +34,7 @@ Click ```enter``` and get the results! If you've chosen ```N``` as your variable
 
 If you have chosen ```h``` as your variable, then you will be presented 41 pairs of numbers, standing for detector's level (from 0 to 40, with step of 1) and measured pressure.
 
-## Usage - pypy3
+## High performace - pypy3
 Even using the ```test_app.py```, the Python3 performance is limited. Some launches can take up to 50 minutes! Instead, I recommend using pypy3 (```brew install pypy3```). It's much faster than standard CPython (even the longest simulations will take up to 5 minutes), but has its own limits. There is a compatibility problem with pygame module, but fortunately - it's easy to solve. Go to ```./utils/gui.py``` and ```./utils/elements.py``` and comment out the second line:
 
 ```
