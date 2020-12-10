@@ -2,9 +2,9 @@
 A program simulating behaviour of ideal gas particles.
 
 ## Table of Contents
-* [Usage - Simulation](#usage-simulation)
-* [Usage - Testing](#usage-testing)
-* [High performance - pypy3](#usage-pypy3)
+* [Usage - Simulation](#usage---simulation)
+* [Usage - Testing](#usage---testing)
+* [High performance - pypy3](#usage---pypy3)
 
 ## Usage - Simulation
 Launch ```simulation.py``` file. An window asking for input data will appear:
